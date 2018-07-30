@@ -1,0 +1,38 @@
+﻿@using IQSoft.PersonList.Domain
+@model IEnumerable<Person>
+
+@{
+    ViewBag.Title = "Persons";
+    Layout = "_Layout";
+}
+
+<h2>Persons</h2>
+
+<div>
+    @Html.ActionLink("Add", "Add")
+    <table class="table">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Patronymic</th>
+            <th>Birthday</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.Patronymic</td>
+                <td>@person.Birthday</td>
+                <td>@Html.ActionLink("Update", "Update", new {id = person.Id})</td>
+                <td>@Html.ActionLink("Delete", "Delete", new {id = person.Id})</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

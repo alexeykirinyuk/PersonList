@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="LiteGuard" Version="2.1.0" />
+    <PackageReference Include="MediatR" Version="5.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IQSoft.PersonList.CQRS.Base\IQSoft.PersonList.CQRS.Base.csproj" />
+    <ProjectReference Include="..\IQSoft.PersonList.Domain\IQSoft.PersonList.Domain.csproj" />
+    <ProjectReference Include="..\IQSoft.PersonList.Server.Dal\IQSoft.PersonList.Server.Dal.csproj" />
+  </ItemGroup>
+</Project>

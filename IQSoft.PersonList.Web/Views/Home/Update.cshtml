@@ -1,0 +1,43 @@
+﻿@using IQSoft.PersonList.Domain;
+@model FormModel<Person>
+
+@{
+    ViewBag.Title = "Save";
+    Layout = "_Layout";
+}
+
+<h2>Save</h2>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Person #@Model.Data.Id</legend>
+
+        <div>
+            @foreach (var error in Model.ValidationException.Failures)
+            {
+                <div class="validation-summary-errors">@error.Message</div>
+            }
+        </div>
+        
+        <div class="form-group">
+            @Html.HiddenFor(m => m.Data.Id, new {@class="form-control"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Data.FirstName)
+            @Html.TextBoxFor(m => m.Data.FirstName, new {@class="form-control"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Data.LastName)
+            @Html.TextBoxFor(m => m.Data.LastName, new {@class="form-control"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Data.Patronymic)
+            @Html.TextBoxFor(m => m.Data.Patronymic, new {@class="form-control"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Data.Birthday)
+            @Html.TextBoxFor(m => m.Data.Birthday, new {@class="form-control"})
+        </div>
+        <input type="submit" value="Save"/>
+    </fieldset>
+}
