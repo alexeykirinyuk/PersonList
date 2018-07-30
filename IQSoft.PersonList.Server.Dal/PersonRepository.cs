@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IQSoft.PersonList.Domain;
@@ -14,7 +15,7 @@ namespace IQSoft.PersonList.Server.Dal
         public PersonRepository(PersonListContext context)
         {
             Guard.AgainstNullArgument(nameof(context), context);
-            
+
             _context = context;
         }
 
@@ -36,6 +37,7 @@ namespace IQSoft.PersonList.Server.Dal
 
         public async Task Update(Person person)
         {
+            _context.Entry(_context.Persons.Find(person.Id)).State = EntityState.Detached;
             _context.Persons.Attach(person);
             _context.Persons.Update(person);
             await _context.SaveChangesAsync();

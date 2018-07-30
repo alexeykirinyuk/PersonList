@@ -26,7 +26,7 @@ namespace IQSoft.PersonList.API.Client
         public PersonListClient()
         {
             // TODO: move client address to configurations.
-            _client = new RestClient("http://localhost:5000");
+            _client = new RestClient("http://localhost:5002");
         }
 
         public GetPersonListQueryResult Get(GetPersonListQuery query)
